@@ -11,6 +11,11 @@ parser.add_argument(
     "--line",
     help="The number of lines in each input file is written to the standard output.",
 )
+parser.add_argument(
+    "-w",
+    "--word",
+    help="The number of words in each input file is written to the standard output.",
+)
 args = parser.parse_args()
 
 if args.byte:
@@ -25,3 +30,11 @@ elif args.line:
         for line in file:
             total_line += line.count(line)
     print("{} {}".format(total_line, args.line))
+elif args.word:
+    total_word = 0
+    with open(args.word, "r") as file:
+        for line in file:
+            string_arr = line.split()
+            if len(string_arr) != 0:
+                total_word += len(string_arr)
+    print("{} {}".format(total_word, args.word))
