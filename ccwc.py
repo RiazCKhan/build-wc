@@ -25,10 +25,11 @@ parser.add_argument(
 args = parser.parse_args()
 
 if args.byte:
-    byte_count()
+    print(args.byte)
+    byte_count(args.byte)
 elif args.line:
-    line_count()
+    line_count(args.line)
 elif args.word:
-    word_count()
+    word_count(args.word)
 elif args.char:
-    char_count()
+    char_count(args.char)
