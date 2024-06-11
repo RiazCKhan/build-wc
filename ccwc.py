@@ -25,7 +25,6 @@ parser.add_argument(
 args = parser.parse_args()
 
 if args.byte:
-    print(args.byte)
     byte_count(args.byte)
 elif args.line:
     line_count(args.line)
