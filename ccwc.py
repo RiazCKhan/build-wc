@@ -1,4 +1,5 @@
 import argparse
+from functions import byte_count, line_count, word_count, char_count
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -24,31 +25,10 @@ parser.add_argument(
 args = parser.parse_args()
 
 if args.byte:
-    total_byte = 0
-    with open(args.byte, "rb") as file:
-        for line in file:
-            total_byte += len(line)
-    print("{} {}".format(total_byte, args.byte))
+    byte_count()
 elif args.line:
-    total_line = 0
-    with open(args.line, "r") as file:
-        for line in file:
-            total_line += line.count(line)
-    print("{} {}".format(total_line, args.line))
+    line_count()
 elif args.word:
-    total_word = 0
-    with open(args.word, "r") as file:
-        for line in file:
-            string_arr = line.split()
-            if len(string_arr) != 0:
-                total_word += len(string_arr)
-    print("{} {}".format(total_word, args.word))
+    word_count()
 elif args.char:
-    total_char = 0
-    with open(args.char, "r") as file:
-        for line in file:
-            string_arr = line.split()
-            if len(string_arr) != 0:
-              for string in string_arr:
-                  total_char += string.count(string)
-    print("{} {}".format(total_char, args.char))
+    char_count()
